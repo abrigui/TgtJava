@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.AccueilAdminController">
+   <children>
+      <Label layoutX="68.0" layoutY="69.0" prefHeight="103.0" prefWidth="192.0" style="-fx-background-color: #e74a3b;" text="Utilisateurs" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <FontAwesomeIconView fill="WHITE" glyphName="USER" layoutX="89.0" layoutY="101.0" size="20" />
+      <Label layoutX="294.0" layoutY="69.0" prefHeight="103.0" prefWidth="192.0" style="-fx-background-color: #4e73df;" text="Agences" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <FontAwesomeIconView fill="WHITE" glyphName="BUILDING" layoutX="315.0" layoutY="101.0" size="20" />
+      <Label layoutX="520.0" layoutY="69.0" prefHeight="103.0" prefWidth="192.0" style="-fx-background-color: #f6c23e;" text="Articles" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <FontAwesomeIconView fill="WHITE" glyphName="BOOK" layoutX="541.0" layoutY="101.0" size="20" />
+      <Label layoutX="747.0" layoutY="69.0" prefHeight="103.0" prefWidth="192.0" style="-fx-background-color: #28a745;" text="Évènements" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </Label>
+      <FontAwesomeIconView fill="WHITE" glyphName="CALENDAR" layoutX="768.0" layoutY="101.0" size="20" />
+      <Label fx:id="lblUtilisateurs" layoutX="68.0" layoutY="172.0" prefHeight="37.0" prefWidth="192.0" style="-fx-background-color: #ffffff;">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+      <Label fx:id="lblAgences" layoutX="294.0" layoutY="172.0" prefHeight="37.0" prefWidth="192.0" style="-fx-background-color: #ffffff;">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+      <Label fx:id="lblArticles" layoutX="520.0" layoutY="172.0" prefHeight="37.0" prefWidth="192.0" style="-fx-background-color: #ffffff;">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+      <Label fx:id="lblEvenements" layoutX="747.0" layoutY="172.0" prefHeight="37.0" prefWidth="192.0" style="-fx-background-color: #ffffff;">
+         <padding>
+            <Insets left="15.0" />
+         </padding>
+      </Label>
+      <Label layoutX="72.0" layoutY="282.0" prefHeight="46.0" prefWidth="237.0" text="Liste des demandes :">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnApprouver" disable="true" layoutX="713.0" layoutY="629.0" onAction="#ApprouverAgence" prefHeight="46.0" prefWidth="110.0" style="-fx-background-color: #28a745;" text="Approuver" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnRefuser" disable="true" layoutX="837.0" layoutY="629.0" onAction="#RefuserAgence" prefHeight="46.0" prefWidth="110.0" style="-fx-background-color: #e74a3b;" text="Refuser" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tvListeDemande" layoutX="72.0" layoutY="356.0" prefHeight="245.0" prefWidth="874.0">
+         <columns>
+            <TableColumn fx:id="tcIdAgence" prefWidth="121.0" text="Id" />
+            <TableColumn fx:id="tcNom" prefWidth="260.0" text="Nom" />
+            <TableColumn fx:id="tcMatFisc" minWidth="8.0" prefWidth="262.0" text="Matricule fiscale" />
+            <TableColumn fx:id="tcTelephone" prefWidth="228.0" text="Téléphone" />
+         </columns>
+      </TableView>
+   </children>
+</Pane>

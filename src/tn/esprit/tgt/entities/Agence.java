@@ -210,7 +210,7 @@ public class Agence {
 
     @Override
     public String toString() {
-        return "Agence{" + "id=" + id + ", nom=" + nom + ", matriculeFiscale=" + matriculeFiscale + ", email=" + email + ", adresse=" + adresse + ", telephone=" + telephone + ", fax=" + fax + ", site=" + site + '}';
+        return nom;
     }
     
     

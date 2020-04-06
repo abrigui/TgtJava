@@ -85,7 +85,7 @@ private int id;
 
     @Override
     public String toString() {
-        return "SousCategorie{" + "id=" + id + ", libelle=" + libelle + ", categorie=" + categorie + '}';
+        return libelle;
     }
     
     

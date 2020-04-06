@@ -113,7 +113,7 @@ public class EvenementService {
         return e;
     }
     
-       public ArrayList<Evenement> getEvenementByAgence(Agence ag) throws SQLException {
+    public ArrayList<Evenement> getEvenementByAgence(Agence ag) throws SQLException {
         ArrayList<Evenement> evenements = new ArrayList<>();
         
         String req = "select * from evenement where Agence_id="+ag.getId()+";";
@@ -125,6 +125,54 @@ public class EvenementService {
            SousCategorie sc = new SousCategorie(result.getInt("SousCategorie_id"));
            Evenement e= new Evenement(result.getInt("id"),result.getString("nom"), result.getString("description"), result.getDate("dateDebut"), result.getString("lieu"), result.getDate("dateFin"), result.getInt("nbParticipantMax"), sc, result.getString("image"), a);
            evenements.add(e);
+        }
+        
+        return evenements;
+    }
+    
+    public ArrayList<Evenement> getEvenementBySousCategorie(SousCategorie sc) throws SQLException {
+        ArrayList<Evenement> evenements = new ArrayList<>();
+        
+        String req = "SELECT * FROM `evenement` WHERE `SousCategorie_id`="+sc.getId()+";";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+           Agence a= new Agence(result.getInt("Agence_id"));          
+           Evenement e= new Evenement(result.getInt("id"),result.getString("nom"), result.getString("description"), result.getDate("dateDebut"), result.getString("lieu"), result.getDate("dateFin"), result.getInt("nbParticipantMax"), sc, result.getString("image"), a);
+           evenements.add(e);
+        }
+        
+        return evenements;
+    }
+       
+    public int getNbrEvenement() throws SQLException {
+        int nbr=0;
+        
+        String req = "select count(*) nbr from evenement";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+           
+            nbr=(result.getInt("nbr"));         
+        }
+        
+        return nbr;
+    }
+    
+    public ArrayList<Evenement> rechercheEvenement(String motCle) throws SQLException {
+       ArrayList<Evenement> evenements = new ArrayList<>();
+        
+        String req = "SELECT * FROM `evenement` WHERE `nom` like'%"+motCle+"%'";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+            Agence a= new Agence(result.getInt("Agence_id"));
+            SousCategorie sc = new SousCategorie(result.getInt("SousCategorie_id"));
+            Evenement e= new Evenement(result.getInt("id"),result.getString("nom"), result.getString("description"), result.getDate("dateDebut"), result.getString("lieu"), result.getDate("dateFin"), result.getInt("nbParticipantMax"), sc, result.getString("image"), a);
+            evenements.add(e);
         }
         
         return evenements;

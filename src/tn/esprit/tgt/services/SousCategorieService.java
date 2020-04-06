@@ -46,7 +46,7 @@ public class SousCategorieService {
         ps.setInt(3, sc.getId());
         res=ps.executeUpdate();
         if(res!=0)
-            System.out.println("Catégorie modifiée avec succès ! ");
+            System.out.println("Sous Catégorie modifiée avec succès ! ");
         else
             System.out.println("Modification impossible");
 
@@ -55,12 +55,22 @@ public class SousCategorieService {
     
     public void supprimerSousCategorie(SousCategorie sc) throws SQLException {
         int res=0;
-        PreparedStatement ps = connexion.prepareStatement("DELETE FROM sous_categorie WHERE id =?");
-        
+        PreparedStatement ps = connexion.prepareStatement("DELETE FROM `sous_categorie` WHERE id=?;");
         ps.setInt(1, sc.getId());
         res=ps.executeUpdate();
         if(res!=0)
-            System.out.println("Catégorie supprimée avec succès ! ");
+            System.out.println("Sous Catégorie supprimée avec succès ! ");
+        else
+            System.out.println("Suppression impossible");
+    }
+    
+    public void supprimerSousCategorieParCategorie(Categorie c) throws SQLException {
+        int res=0;
+        PreparedStatement ps = connexion.prepareStatement("DELETE FROM `sous_categorie` WHERE `categorie_id`=?;");
+        ps.setInt(1, c.getId());
+        res=ps.executeUpdate();
+        if(res!=0)
+            System.out.println("Sous Catégorie supprimée avec succès ! ");
         else
             System.out.println("Suppression impossible");
     }
@@ -78,6 +88,38 @@ public class SousCategorieService {
         }
         
         return sousCategories;
+    }
+    
+    public ArrayList<SousCategorie> getAllSousCategorie() throws SQLException {
+       ArrayList<SousCategorie> sousCategories = new ArrayList<>();
+        
+        String req = "select * from sous_categorie ;";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+            Categorie c= new Categorie(result.getInt("categorie_id"));
+            SousCategorie sc = new SousCategorie(result.getInt(1), result.getString("libelle"),c);
+            sousCategories.add(sc);
+        }
+        
+        return sousCategories;
+    }
+    
+    public SousCategorie getSousCategorieById(int id) throws SQLException {
+        SousCategorie sc=null;
+        
+        String req = "SELECT * FROM `sous_categorie` WHERE `id`="+id+";";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+            Categorie c= new Categorie(result.getInt("categorie_id"));
+             sc = new SousCategorie(result.getInt(1), result.getString("libelle"),c);
+            
+        }
+        
+        return sc;
     }
     
     

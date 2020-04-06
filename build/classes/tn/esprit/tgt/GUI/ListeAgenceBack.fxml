@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.ListeAgenceBackController">
+   <children>
+      <Label layoutX="345.0" layoutY="68.0" text="Liste des agences">
+         <font>
+            <Font name="Arial Bold" size="35.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tvAgence" layoutX="33.0" layoutY="240.0" prefHeight="422.0" prefWidth="925.0">
+        <columns>
+          <TableColumn fx:id="tcId" prefWidth="46.0" text="Id" />
+          <TableColumn fx:id="tcNomAgence" prefWidth="124.0" text="Nom" />
+            <TableColumn fx:id="tcMatriculeFoscale" prefWidth="129.0" text="Matricule fiscale" />
+            <TableColumn fx:id="tcAdresse" prefWidth="154.0" text="Adresse" />
+            <TableColumn fx:id="tcTelephone" prefWidth="100.0" text="Téléphone" />
+            <TableColumn fx:id="tcFax" prefWidth="97.0" text="Fax" />
+            <TableColumn fx:id="tcSite" prefWidth="137.0" text="Site web" />
+            <TableColumn fx:id="tcEmail" prefWidth="137.0" text="Email" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfRecherche" layoutX="338.0" layoutY="178.0" onKeyReleased="#rechercheAgence" prefHeight="31.0" prefWidth="315.0" />
+      <Label layoutX="214.0" layoutY="183.0" prefHeight="22.0" prefWidth="118.0" text="Recherche :">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

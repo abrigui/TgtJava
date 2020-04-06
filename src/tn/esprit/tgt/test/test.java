@@ -7,6 +7,7 @@ package tn.esprit.tgt.test;
 
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import tn.esprit.tgt.entities.*;
 import tn.esprit.tgt.services.*;
 
@@ -17,9 +18,7 @@ import tn.esprit.tgt.services.*;
  */
 public class test {
 
-    /**
-     * @param args the command line arguments
-     */
+ 
     public static void main(String[] args) throws SQLException {
         // TODO code application logic here
 //        User u = new User(6, "kk", "kk", "12kk", "kk", "kk", "kk", "kk", 200145, "kk");
@@ -43,7 +42,7 @@ public class test {
 //        Commentaire c = new Commentaire("dsdsd", date, p, u);
 //        CommentaireService cs = new CommentaireService();
 //        cs.ajoutCommentaire(c);
-        
+          
         
     }
     

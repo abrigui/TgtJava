@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author ADMIN
  */
 public class Categorie {
- private int id;
+    private int id;
     private String libelle;
     private ArrayList<SousCategorie> sousCategories= new ArrayList<>();
 
@@ -28,6 +28,10 @@ public class Categorie {
 
     public Categorie(String libelle) {
         this.libelle = libelle;
+    }
+
+    public Categorie(int id) {
+        this.id = id;
     }
     
     
@@ -80,7 +84,7 @@ public class Categorie {
 
     @Override
     public String toString() {
-        return "Categorie{" + "id=" + id + ", libelle=" + libelle + '}';
+        return  libelle ;
     }
     
     

@@ -98,6 +98,55 @@ public class AgenceService {
         return agences;
     }
     
+    public ArrayList<Agence> getAgenceEnAttente() throws SQLException {
+       ArrayList<Agence> agences = new ArrayList<>();
+        
+        String req = "select * from agence where etat=0";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+            Sponsor s= new Sponsor(result.getInt("sponsor_id"));
+            User u = new User(result.getInt("utilisateurProfessionnel_id"));
+            Agence agence= new Agence(result.getInt("id"), result.getString("nom"), result.getString("matriculeFiscale"), result.getString("email"), result.getString("adresse"), result.getInt("telephone"), result.getInt("fax"), result.getString("site"), result.getString("logo"), s, u,result.getInt("etat"));
+            agences.add(agence);
+        }
+        
+        return agences;
+    }
+    
+    public ArrayList<Agence> getAgenceApprouver() throws SQLException {
+       ArrayList<Agence> agences = new ArrayList<>();
+        
+        String req = "select * from agence where etat=1";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+            Sponsor s= new Sponsor(result.getInt("sponsor_id"));
+            User u = new User(result.getInt("utilisateurProfessionnel_id"));
+            Agence agence= new Agence(result.getInt("id"), result.getString("nom"), result.getString("matriculeFiscale"), result.getString("email"), result.getString("adresse"), result.getInt("telephone"), result.getInt("fax"), result.getString("site"), result.getString("logo"), s, u,result.getInt("etat"));
+            agences.add(agence);
+        }
+        
+        return agences;
+    }
+    
+    public int getNbrAgenceApprouver() throws SQLException {
+        int nbr=0;
+        
+        String req = "select count(*) nbr from agence where etat=1";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+           
+            nbr=(result.getInt("nbr"));         
+        }
+        
+        return nbr;
+    }
+    
     public Agence getAgenceById(int id) throws SQLException {
        Agence agence = new Agence();
         
@@ -129,6 +178,23 @@ public class AgenceService {
         else
             System.out.println("Modification Etat impossible");
 
+    }
+     
+     public ArrayList<Agence> rechercheAgence(String motCle) throws SQLException {
+       ArrayList<Agence> agences = new ArrayList<>();
+        
+        String req = "SELECT * FROM `agence` where nom like '%"+motCle+"%'";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+            Sponsor s= new Sponsor(result.getInt("sponsor_id"));
+            User u = new User(result.getInt("utilisateurProfessionnel_id"));
+            Agence agence= new Agence(result.getInt("id"), result.getString("nom"), result.getString("matriculeFiscale"), result.getString("email"), result.getString("adresse"), result.getInt("telephone"), result.getInt("fax"), result.getString("site"), result.getString("logo"), s, u,result.getInt("etat"));
+            agences.add(agence);
+        }
+        
+        return agences;
     }
     
 }

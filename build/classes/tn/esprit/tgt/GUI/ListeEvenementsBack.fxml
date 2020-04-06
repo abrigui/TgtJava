@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.ListeEvenementsBackController">
+   <children>
+      <Label layoutX="312.0" layoutY="66.0" text="Liste des Evènements">
+         <font>
+            <Font name="Arial Bold" size="35.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tvEvenements" layoutX="33.0" layoutY="240.0" prefHeight="422.0" prefWidth="925.0">
+         <columns>
+            <TableColumn fx:id="tcId" prefWidth="46.0" text="Id" />
+            <TableColumn fx:id="tcNomEvenement" prefWidth="144.0" text="Nom" />
+            <TableColumn fx:id="tcDateDebut" prefWidth="109.0" text="Date début" />
+            <TableColumn fx:id="tcLieu" prefWidth="86.0" text="lieu" />
+            <TableColumn fx:id="tcDateFin" prefWidth="121.0" text="Date fin" />
+            <TableColumn fx:id="tcNbPlace" prefWidth="144.0" text="Nombre de place" />
+            <TableColumn fx:id="tcClassification" prefWidth="137.0" text="Classification" />
+            <TableColumn fx:id="tcAgence" prefWidth="137.0" text="Agence" />
+         </columns>
+      </TableView>
+      <TextField fx:id="tfRecherche" layoutX="338.0" layoutY="178.0" onKeyReleased="#rechercheEvenement" prefHeight="31.0" prefWidth="315.0" />
+      <Label layoutX="214.0" layoutY="183.0" prefHeight="22.0" prefWidth="118.0" text="Recherche :">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

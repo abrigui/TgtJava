@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.SousCategorieController">
+   <children>
+      <TableView fx:id="tvSousCategories" layoutX="96.0" layoutY="225.0" prefHeight="231.0" prefWidth="643.0">
+         <columns>
+            <TableColumn fx:id="tcIdSousCategorie" prefWidth="106.0" text="Id" />
+            <TableColumn fx:id="tcLibelleSousCategorie" prefWidth="237.0" text="Libellé" />
+            <TableColumn fx:id="tcCategorie" prefWidth="299.0" text="Catégorie" />
+         </columns>
+      </TableView>
+      <Label layoutX="272.0" layoutY="66.0" text="Gestion des sous catégories">
+         <font>
+            <Font name="Arial Bold" size="35.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnAjouter" layoutX="814.0" layoutY="253.0" onAction="#AjouterSousCategorie" prefHeight="46.0" prefWidth="110.0" style="-fx-background-color: #28a745;" text="Ajouter" textFill="#fffdfd">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnModifier" disable="true" layoutX="814.0" layoutY="319.0" onAction="#ModifierSousCategorie" prefHeight="46.0" prefWidth="110.0" style="-fx-background-color: #4e73df;" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnSupprimer" disable="true" layoutX="814.0" layoutY="386.0" onAction="#SupprimerSousCategorie" prefHeight="46.0" prefWidth="110.0" style="-fx-background-color: #e74a3b;" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lblListeSousCategorie" layoutX="96.0" layoutY="166.0" prefHeight="46.0" prefWidth="268.0" text="Liste des sous catégories :">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAction" disable="true" layoutX="96.0" layoutY="490.0" prefHeight="41.0" prefWidth="341.0" text="label action:" visible="false">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="tfLibelle" focusTraversable="false" layoutX="234.0" layoutY="548.0" prefHeight="31.0" prefWidth="255.0" unFocusColor="BLACK" visible="false" />
+      <Label fx:id="lblLibelle" disable="true" layoutX="122.0" layoutY="547.0" prefHeight="41.0" prefWidth="76.0" text="Libellé:" visible="false">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnValider" disable="true" layoutX="577.0" layoutY="582.0" onAction="#ValiderAction" prefHeight="31.0" prefWidth="110.0" style="-fx-background-color: #28a745;" text="Valider" textFill="#fffdfd" visible="false">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="cbCategorie" disable="true" layoutX="234.0" layoutY="598.0" prefHeight="31.0" prefWidth="255.0" visible="false" />
+      <Label fx:id="lblCategorie" disable="true" layoutX="122.0" layoutY="598.0" prefHeight="41.0" prefWidth="96.0" text="Catégorie:" visible="false">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
