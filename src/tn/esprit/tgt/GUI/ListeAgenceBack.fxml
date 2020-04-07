@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.ListeAgenceBackController">
    <children>
@@ -27,11 +28,20 @@
             <TableColumn fx:id="tcEmail" prefWidth="137.0" text="Email" />
         </columns>
       </TableView>
-      <TextField fx:id="tfRecherche" layoutX="338.0" layoutY="178.0" onKeyReleased="#rechercheAgence" prefHeight="31.0" prefWidth="315.0" />
-      <Label layoutX="214.0" layoutY="183.0" prefHeight="22.0" prefWidth="118.0" text="Recherche :">
+      <TextField fx:id="tfRecherche" layoutX="161.0" layoutY="178.0" onKeyReleased="#rechercheAgence" prefHeight="31.0" prefWidth="323.0" />
+      <Label layoutX="37.0" layoutY="182.0" prefHeight="22.0" prefWidth="118.0" text="Recherche :">
          <font>
             <Font name="Arial Bold" size="19.0" />
          </font>
       </Label>
+      <JFXButton fx:id="btnImprimer" layoutX="851.0" layoutY="178.0" onAction="#imprimer" style="-fx-background-color: #4e73df;" text="Imprimer" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="PRINT" size="20" />
+         </graphic>
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="496.0" layoutY="198.0" size="20" />
    </children>
 </Pane>

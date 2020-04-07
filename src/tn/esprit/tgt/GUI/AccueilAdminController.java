@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,9 +24,20 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javax.mail.MessagingException;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import tn.esprit.tgt.entities.Agence;
 import tn.esprit.tgt.services.AgenceService;
 import tn.esprit.tgt.services.EvenementService;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * FXML Controller class
@@ -132,6 +144,11 @@ public class AccueilAdminController implements Initializable {
         btnRefuser.setDisable(true);
         populate();
         lblAgences.setText(""+agService.getNbrAgenceApprouver());
+        String corps="Chère agence "+agenceATraiter.getNom()+",\nNous avons le plaisir de vous informer que votre demande a été acceptée.\n"
+                + "Vous pouvez dès maintenant commencer l'utilisation de notre plateforme. Nous vous souhaitons une expérience agréable."
+                 + "\n\nCordialement,\nL'équipe TGT";
+        sendEmail(agenceATraiter.getEmail(), corps);
+
         
     }
 
@@ -142,6 +159,55 @@ public class AccueilAdminController implements Initializable {
         btnApprouver.setDisable(true);
         btnRefuser.setDisable(true);
         populate();
+        String corps="Chère agence "+agenceATraiter.getNom()+",\nEn réponse à votre demande d'inscription, Nous sommes au regret de devoir vous informer que celle-ci n'a pas été retenue.\n"
+                + "Nous sommes très sensibles à l'intérêt que vous portez à notre plateforme, mais jugeons que votre domaine d'activité ne correspond pas à ceux visés par notre activité. "
+                 + "\n\nCordialement,\nL'équipe TGT";
+        sendEmail(agenceATraiter.getEmail(), corps); 
     }
+    
+    public static void sendEmail(String emailAddress,String sub){
+    String to = emailAddress;//change accordingly  
+     
+    String host = "smtp.gmail.com";//or IP address  
+    final String username = "pijavatgt@gmail.com";
+    final String password = "Azertyuiop123";
+    //Get the session object  
+    Properties props = System.getProperties();  
+    props.setProperty("mail.smtp.host", host);  
+    props.put("mail.smtp.starttls.enable","true");
+    /* mail.smtp.ssl.trust is needed in script to avoid error "Could not convert socket to TLS"  */
+    props.setProperty("mail.smtp.ssl.trust", host);
+    props.put("mail.smtp.auth", "true");      
+          
+    props.put("mail.smtp.port", "587");
+    Session session = Session.getDefaultInstance(props, 
+    new javax.mail.Authenticator() 
+    {         
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username,password);
+            }
+        });
+     
+     
+      try
+      {  
+        MimeMessage message = new MimeMessage(session);
+   
+        message.setFrom(new InternetAddress(username));  
+        message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));  
+        message.setSubject("TGT PLATEFORME D'ÉVÉNEMENT: demande d'inscription");  
+        message.setText(sub);  
+ 
+        // Send message  
+        Transport.send(message);  
+        System.out.println("message sent successfully....");  
+  
+      }
+      catch (MessagingException mex)
+      {
+          mex.printStackTrace();
+      }  
+     
+}
     
 }

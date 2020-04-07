@@ -8,6 +8,7 @@ package tn.esprit.tgt.GUI;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import java.awt.AWTException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -221,7 +222,7 @@ public class SousCategorieController implements Initializable {
     }
 
     @FXML
-    void SupprimerSousCategorie(ActionEvent event) throws SQLException {
+    void SupprimerSousCategorie(ActionEvent event) throws SQLException, AWTException {
         JOptionPane jop = new JOptionPane();    	
       int option = jop.showConfirmDialog(null, 
         "Voulez-vous supprimer cette sous catégorie ?",
@@ -238,11 +239,13 @@ public class SousCategorieController implements Initializable {
           btnModifier.setDisable(true);
           btnSupprimer.setDisable(true);
           populate();
+          Notifications n = new Notifications();
+          n.displayTray("Sous catégories", "Sous catégorie supprimée avec succès !");
       }
     }
 
     @FXML
-    void ValiderAction(ActionEvent event) throws SQLException {
+    void ValiderAction(ActionEvent event) throws SQLException, AWTException {
          if (action.equals("Ajouter"))
         {
             if(tfLibelle.getText().isEmpty() || cbCategorie.getValue()== null)
@@ -273,6 +276,9 @@ public class SousCategorieController implements Initializable {
                 cbCategorie.setVisible(false);
                 lblCategorie.setDisable(true);
                 lblCategorie.setVisible(false);
+                
+                 Notifications n = new Notifications();
+                 n.displayTray("Sous catégories", "Sous catégorie ajoutée avec succès !");
             }                           
         }
         else //Action.equals("Modifier")
@@ -310,6 +316,9 @@ public class SousCategorieController implements Initializable {
                 lblCategorie.setDisable(false);
                 lblCategorie.setVisible(false);
                 cbCategorie.setVisible(false);
+                
+                Notifications n = new Notifications();
+                n.displayTray("Sous catégories", "Sous catégorie modifiée avec succès !");
             }                    
         }
          

@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -30,6 +31,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import tn.esprit.tgt.entities.Agence;
 import tn.esprit.tgt.services.AgenceService;
 import tn.esprit.tgt.services.EvenementService;
@@ -107,7 +110,7 @@ public class DashboardController implements Initializable {
     private void btnUtilisateurs (ActionEvent event) throws IOException {
         
     }
-       
+ 
     @FXML
     void btnCategories(ActionEvent event) {
         mainPane.getChildren().clear();

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -26,11 +28,20 @@
             <TableColumn fx:id="tcAgence" prefWidth="137.0" text="Agence" />
          </columns>
       </TableView>
-      <TextField fx:id="tfRecherche" layoutX="338.0" layoutY="178.0" onKeyReleased="#rechercheEvenement" prefHeight="31.0" prefWidth="315.0" />
-      <Label layoutX="214.0" layoutY="183.0" prefHeight="22.0" prefWidth="118.0" text="Recherche :">
+      <TextField fx:id="tfRecherche" layoutX="157.0" layoutY="181.0" onKeyReleased="#rechercheEvenement" prefHeight="31.0" prefWidth="315.0" />
+      <Label layoutX="33.0" layoutY="186.0" prefHeight="22.0" prefWidth="118.0" text="Recherche :">
          <font>
             <Font name="Arial Bold" size="19.0" />
          </font>
       </Label>
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="485.0" layoutY="201.0" size="20" />
+      <JFXButton fx:id="btnImprimer" layoutX="851.0" layoutY="182.0" onAction="#imprimer" style="-fx-background-color: #4e73df;" text="Imprimer" textFill="WHITE">
+         <graphic>
+            <FontAwesomeIconView fill="WHITE" glyphName="PRINT" size="20" />
+         </graphic>
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
    </children>
 </Pane>

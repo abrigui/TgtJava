@@ -7,6 +7,7 @@ package tn.esprit.tgt.GUI;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import java.awt.AWTException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -219,7 +220,7 @@ public class ListeCategoriesController implements Initializable {
     }
     
     @FXML
-    void SupprimerCategorie(ActionEvent event) throws SQLException {
+    void SupprimerCategorie(ActionEvent event) throws SQLException, AWTException {
         JOptionPane jop = new JOptionPane();    	
       int option = jop.showConfirmDialog(null, 
         "Voulez-vous supprimer cette catégorie ?\n NB: Suite à la suppression toutes les sous catégories appartenant à cette dérnière seront eux aussi supprimées.",
@@ -240,11 +241,13 @@ public class ListeCategoriesController implements Initializable {
           btnModifier.setDisable(true);
           btnSupprimer.setDisable(true);
           populate();
+          Notifications n = new Notifications();
+          n.displayTray("Catégories", "Catégorie supprimée avec succès !");
       }
     }
     
     
-    @FXML void ValiderAction(ActionEvent event) throws SQLException { 
+    @FXML void ValiderAction(ActionEvent event) throws SQLException, AWTException { 
         if (action.equals("Ajouter"))
         {
             if(tfLibelle.getText().isEmpty())
@@ -275,7 +278,9 @@ public class ListeCategoriesController implements Initializable {
                 tfLibelle.setVisible(false);
                 tfLibelle.setDisable(true);
                 btnValider.setDisable(true);
-                btnValider.setVisible(false); 
+                btnValider.setVisible(false);
+                Notifications n = new Notifications();
+                n.displayTray("Catégories", "Catégorie ajoutée avec succès !");
             }                           
         }
         else //Action.equals("Modifier")
@@ -314,6 +319,8 @@ public class ListeCategoriesController implements Initializable {
                 btnAjouter.setDisable(false);
                 btnModifier.setDisable(true);
                 btnSupprimer.setDisable(true);
+                Notifications n = new Notifications();
+                n.displayTray("Catégories", "Catégorie modifiée avec succès !");
             }                    
         }
     
