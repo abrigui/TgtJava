@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="492.0" prefWidth="777.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="tn.esprit.tgt.GUI.AjoutSponsorController">
+   <children>
+      <Label layoutX="249.0" layoutY="35.0" text="Ajouter sponsor">
+         <font>
+            <Font name="Arial Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="149.0" prefHeight="24.0" prefWidth="59.0" text="Nom:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNom" layoutX="182.0" layoutY="146.0" />
+      <TextField fx:id="tfAdresse" layoutX="182.0" layoutY="191.0" />
+      <TextField fx:id="tfEmail" layoutX="182.0" layoutY="237.0" />
+      <TextField fx:id="tfTelephone" layoutX="182.0" layoutY="282.0" />
+      <Label layoutX="69.0" layoutY="194.0" prefHeight="24.0" prefWidth="81.0" text="Adresse:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="241.0" prefHeight="24.0" prefWidth="59.0" text="Email:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="69.0" layoutY="286.0" prefHeight="24.0" prefWidth="113.0" text="Téléphone:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ivLogo" fitHeight="150.0" fitWidth="200.0" layoutX="495.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="btnSelectionImage" layoutX="507.0" layoutY="310.0" onAction="#selectionImage" prefHeight="31.0" prefWidth="177.0" style="-fx-background-color: #4e73df;" text="Choisissez une image" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnValider" layoutX="315.0" layoutY="430.0" onAction="#valider" prefHeight="31.0" prefWidth="173.0" style="-fx-background-color: #28a745;" text="Valider" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="866.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.MenuController">
+   <children>
+      <AnchorPane prefHeight="51.0" prefWidth="1309.0" style="-fx-background-color: #3E64FF;">
+         <children>
+            <Button fx:id="btn_connexion" layoutX="1080.0" layoutY="9.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" style="-fx-text-fill: WHITE; -fx-background-color: #218838;" text="Connexion" />
+            <Button fx:id="btn_inscription" layoutX="1193.0" layoutY="9.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" style="-fx-text-fill: WHITE; -fx-background-color: #218838;" text="Inscription" />
+            <Button fx:id="btn_evenements" layoutX="388.0" layoutY="13.0" mnemonicParsing="false" onAction="#afficherListeEvenement" style="-fx-background-color: #3E64FF; -fx-text-fill: White;" text="Evénements" />
+            <Button layoutX="297.0" layoutY="12.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="btn_agences" layoutX="204.0" layoutY="12.0" mnemonicParsing="false" onAction="#BtnAgences" style="-fx-background-color: #3E64FF; -fx-text-fill: WHITE;" text="Agences événementielle" />
+            <Button fx:id="btn_talents" layoutX="125.0" layoutY="13.0" mnemonicParsing="false" onAction="#BtnTalents" prefHeight="25.0" prefWidth="68.0" style="-fx-background-color: #3E64FF; -fx-text-fill: WHITE;" text="Talents" />
+            <Button fx:id="btn_accueil" layoutX="38.0" layoutY="1.0" mnemonicParsing="false" onAction="#BtntAccueil" prefHeight="49.0" prefWidth="68.0" style="-fx-background-color: #fa5c20; -fx-text-fill: WHITE;" text="Accueil">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_blog" layoutX="500.0" layoutY="13.0" mnemonicParsing="false" style="-fx-background-color: #3E64FF; -fx-text-fill: WHITE;" text="Blog" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="mainPane" layoutY="50.0" prefHeight="816.0" prefWidth="1309.0" />
+   </children>
+</AnchorPane>

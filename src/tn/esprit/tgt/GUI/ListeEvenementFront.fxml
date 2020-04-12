@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="815.0" prefWidth="1309.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.ListeEvenementFrontController">
+   <children>
+      <Label layoutX="535.0" layoutY="23.0" prefHeight="62.0" prefWidth="240.0" text="Les Événements">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Label>
+      <ScrollPane hbarPolicy="NEVER" layoutX="1.0" layoutY="170.0" pannable="true" prefHeight="645.0" prefWidth="1309.0">
+         <content>
+            <VBox fx:id="mainPain" prefHeight="646.0" prefWidth="1289.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id="tfRecherche" layoutX="151.0" layoutY="113.0" onKeyReleased="#rechercheEvenement" prefHeight="31.0" prefWidth="315.0" />
+      <Label layoutX="27.0" layoutY="118.0" prefHeight="22.0" prefWidth="118.0" text="Recherche :">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView glyphName="SEARCH" layoutX="479.0" layoutY="133.0" size="20" />
+      <ComboBox fx:id="cbSousCat" layoutX="1085.0" layoutY="111.0" onAction="#filtrage" prefHeight="31.0" prefWidth="194.0" />
+      <Label layoutX="965.0" layoutY="118.0" prefHeight="22.0" prefWidth="109.0" text="Filtrer par :">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

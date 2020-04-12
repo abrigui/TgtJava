@@ -189,7 +189,7 @@ public class SousCategorieController implements Initializable {
         btnValider.setDisable(false);
         btnValider.setVisible(true);  
     }
-
+    
     @FXML
     void ModifierSousCategorie(ActionEvent event) throws SQLException {
         tfLibelle.setText("");

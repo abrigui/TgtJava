@@ -96,7 +96,7 @@ public class AccueilAdminController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {       
+    public void initialize(URL url, ResourceBundle rb) {         
         populate();
         tcIdAgence.setCellValueFactory(new PropertyValueFactory<Agence,Integer>("id"));
         tcNom.setCellValueFactory(new PropertyValueFactory<Agence,String>("nom"));

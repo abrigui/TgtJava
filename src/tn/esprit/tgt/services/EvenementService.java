@@ -178,4 +178,36 @@ public class EvenementService {
         return evenements;
     }
     
+    public int getNbrParticipationParEvenement(int id) throws SQLException {
+        int nbr=0;
+        
+        String req = "select count(*) nbr from participation where evenement="+id+";";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+           
+            nbr=(result.getInt("nbr"));         
+        }
+        
+        return nbr;
+    }
+    
+    public int verifierParticipationParEvenementEtUser(int idEvent, int idUser) throws SQLException {
+        int nbr=0;
+        
+        String req = "select count(*) nbr from participation where evenement="+idEvent+" and utilisateur="+idUser+";";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+           
+            nbr=(result.getInt("nbr"));         
+        }
+        
+        return nbr;
+    }
+    
+    
+    
 }

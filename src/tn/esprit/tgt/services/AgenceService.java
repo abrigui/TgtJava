@@ -196,5 +196,31 @@ public class AgenceService {
         
         return agences;
     }
+     
+     public ArrayList<Agence> getAgenceByUser(User u) throws SQLException {      
+        ArrayList<Agence> agences = new ArrayList<>();      
+        String req = "select * from agence where utilisateurProfessionnel_id="+u.getId()+";";
+        Statement stm = connexion.createStatement();
+        ResultSet result =  stm.executeQuery(req);
+        
+        while(result.next()){
+            Sponsor s= new Sponsor(result.getInt("sponsor_id"));          
+            Agence agence= new Agence(result.getInt("id"), result.getString("nom"), result.getString("matriculeFiscale"), result.getString("email"), result.getString("adresse"), result.getInt("telephone"), result.getInt("fax"), result.getString("site"), result.getString("logo"), s, u,result.getInt("etat"));
+            agences.add(agence);
+        }
+        
+        return agences;
+    }
+     
+     public void supprimerAgenceByUser(User u) throws SQLException {
+        int res=0;
+        PreparedStatement ps = connexion.prepareStatement("DELETE FROM `agence` WHERE utilisateurProfessionnel_id="+u.getId()+";");       
+        res=ps.executeUpdate();
+        if(res!=0)
+            System.out.println("Agence supprimée avec succès ! ");
+        else
+            System.out.println("Suppression impossible");
+    }
+    
     
 }

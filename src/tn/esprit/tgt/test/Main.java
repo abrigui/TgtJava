@@ -10,12 +10,16 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -28,14 +32,14 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
        
-         Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/tgt/GUI/Dashboard.fxml"));        
+            Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/tgt/GUI/menu.fxml"));        
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(scene);
             stage.show();
+         
     }
-
     /**
      * @param args the command line arguments
      */
