@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorGlobal" prefHeight="815.0" prefWidth="1309.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.ListeAgencesFrontController">
+   <children>
+      <Label fx:id="lblLesAgences" layoutX="577.0" layoutY="22.0" prefHeight="62.0" prefWidth="187.0" text="Les Agences" visible="false">
+         <font>
+            <Font name="Arial Bold" size="30.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="1.0" layoutY="170.0" pannable="true" prefHeight="645.0" prefWidth="1339.0" vbarPolicy="ALWAYS" visible="false">
+         <content>
+            <VBox fx:id="mainPain" prefHeight="639.0" prefWidth="1314.0" />
+         </content>
+      </ScrollPane>
+      <TextField fx:id="tfRecherche" layoutX="151.0" layoutY="113.0" onKeyReleased="#rechercheEvenement" prefHeight="31.0" prefWidth="315.0" visible="false" />
+      <Label fx:id="lblRecherche" layoutX="27.0" layoutY="118.0" prefHeight="22.0" prefWidth="118.0" text="Recherche :" visible="false">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fx:id="iconRecherche" glyphName="SEARCH" layoutX="479.0" layoutY="133.0" size="20" visible="false" />
+      <Label fx:id="lblNomAgence" alignment="CENTER" layoutX="115.0" layoutY="39.0" prefHeight="45.0" prefWidth="381.0" style="-fx-background-color: #4e73df;" text="Agence:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Separator fx:id="separator" layoutX="672.0" layoutY="101.0" orientation="VERTICAL" prefHeight="353.0" prefWidth="14.0" />
+      <Label fx:id="lblMatriculeFiscale" layoutX="77.0" layoutY="329.0" prefHeight="30.0" prefWidth="435.0" text="Matricule fiscale:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAdresseAgence" layoutX="76.0" layoutY="362.0" prefHeight="30.0" prefWidth="435.0" text="Adresse:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFaxAgence" layoutX="362.0" layoutY="425.0" prefHeight="30.0" prefWidth="187.0" text="Fax: 74888555">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSiteAgence" layoutX="77.0" layoutY="462.0" prefHeight="30.0" prefWidth="435.0" text="Site:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageAgence" fitHeight="175.0" fitWidth="326.0" layoutX="157.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <image>
+            <Image url="@../../../../../../../../../Desktop/Evenement/thevoice.jpeg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblTelAgence" layoutX="76.0" layoutY="426.0" prefHeight="30.0" prefWidth="227.0" text="Téléphone: 22308300">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmailAgence" layoutX="77.0" layoutY="394.0" prefHeight="30.0" prefWidth="435.0" text="Email :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="scrollPaneEvent" hbarPolicy="ALWAYS" layoutX="5.0" layoutY="539.0" prefHeight="274.0" prefWidth="1302.0" vbarPolicy="NEVER">
+         <content>
+            <HBox fx:id="HboxEvent" prefHeight="253.0" prefWidth="1328.0" />
+         </content>
+      </ScrollPane>
+      <ImageView fx:id="imageSponsor" fitHeight="175.0" fitWidth="321.0" layoutX="877.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <image>
+            <Image url="@../../../../../../../../../Desktop/Evenement/thevoice.jpeg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblAdresseSponsor" layoutX="794.0" layoutY="313.0" prefHeight="30.0" prefWidth="435.0" text="Adresse:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTelSponsor" layoutX="794.0" layoutY="380.0" prefHeight="30.0" prefWidth="297.0" text="Téléphone: 22308300">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmailSponsor" layoutX="795.0" layoutY="346.0" prefHeight="30.0" prefWidth="435.0" text="Email :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNomSponsor" alignment="CENTER" layoutX="832.0" layoutY="47.0" prefHeight="45.0" prefWidth="381.0" style="-fx-background-color: #28a745;" text="Sponsor:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAvertissementSponsor" alignment="CENTER" layoutX="794.0" layoutY="322.0" prefHeight="64.0" prefWidth="435.0" style="-fx-background-color: #e74a3b;" text="L'agence n'a pas encore de sponsor" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAvertissementEvenement" alignment="CENTER" layoutX="461.0" layoutY="636.0" prefHeight="64.0" prefWidth="435.0" style="-fx-background-color: #e74a3b;" text="L'agence n'a pas encore d'événements" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblLesEvenements" alignment="CENTER" layoutX="581.0" layoutY="478.0" prefHeight="30.0" prefWidth="187.0" style="-fx-background-color: #28a745;" text="Les événements" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

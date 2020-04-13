@@ -5,9 +5,12 @@
  */
 package tn.esprit.tgt.test;
 
-import java.sql.Date;
+
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.*;
 import tn.esprit.tgt.entities.*;
 import tn.esprit.tgt.services.*;
 
@@ -19,7 +22,7 @@ import tn.esprit.tgt.services.*;
 public class test {
 
  
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException, ParseException {
         // TODO code application logic here
 //        User u = new User(6, "kk", "kk", "12kk", "kk", "kk", "kk", "kk", 200145, "kk");
 ////        UserService su = new UserService();

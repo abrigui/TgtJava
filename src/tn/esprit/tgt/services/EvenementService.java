@@ -208,6 +208,27 @@ public class EvenementService {
         return nbr;
     }
     
+    public void ajouterParticipation(int idUser,int idEvent) throws SQLException {
+       PreparedStatement ps = connexion.prepareStatement("INSERT INTO `participation`(`utilisateur`, `evenement`) VALUES (?,?);");
+
+        ps.setInt(1,idUser);
+        ps.setInt(2,idEvent);
+
+        ps.executeUpdate();
+        System.out.println("Participation ajoutée avec succès ! ");
+    }
+    
+    public void supprimerParticipation(int idUser,int idEvent) throws SQLException {
+        int res=0;
+        PreparedStatement ps = connexion.prepareStatement("DELETE FROM `participation` WHERE `utilisateur`=? and `evenement`=?");
+        ps.setInt(1,idUser);
+        ps.setInt(2,idEvent);
+        res=ps.executeUpdate();
+        if(res!=0)
+            System.out.println("Participation supprimée avec succès ! ");
+        else
+            System.out.println("Suppression participation impossible");
+    }
     
     
 }

@@ -67,6 +67,17 @@ public class MenuController implements Initializable {
 
     @FXML
     private void BtnAgences(ActionEvent event) {
+        mainPane.getChildren().clear();
+        Parent parent = null;
+        try 
+        {
+            parent = FXMLLoader.load(getClass().getResource("/tn/esprit/tgt/GUI/ListeAgencesFront.fxml"));
+        } 
+        catch (IOException ex) 
+        {
+            Logger.getLogger(DashboardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mainPane.getChildren().add(parent);
     }
 
     @FXML

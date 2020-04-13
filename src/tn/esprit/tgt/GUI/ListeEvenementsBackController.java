@@ -117,8 +117,7 @@ public class ListeEvenementsBackController implements Initializable {
            Robot robot= new Robot();
            tfRecherche.requestFocus();
            robot.keyPress(java.awt.event.KeyEvent.VK_ENTER);
-
-                 
+           
        if(motCle.isEmpty())
        {
         populate();
