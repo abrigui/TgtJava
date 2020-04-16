@@ -57,8 +57,8 @@ public class ListeAgenceBackController implements Initializable {
     @FXML
     private TableView<Agence> tvAgence;
 
-    @FXML
-    private TableColumn<Agence, Integer> tcId;
+    //@FXML
+    //private TableColumn<Agence, Integer> tcId;
     @FXML
     private TableColumn<Agence, String> tcNomAgence;
     @FXML
@@ -98,7 +98,7 @@ public class ListeAgenceBackController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         populate();
-        tcId.setCellValueFactory(new PropertyValueFactory<Agence,Integer>("id"));
+        //tcId.setCellValueFactory(new PropertyValueFactory<Agence,Integer>("id"));
         tcNomAgence.setCellValueFactory(new PropertyValueFactory<Agence,String>("nom"));
         tcMatriculeFoscale.setCellValueFactory(new PropertyValueFactory<Agence,String>("matriculeFiscale"));
         tcEmail.setCellValueFactory(new PropertyValueFactory<Agence,String>("email"));
@@ -145,7 +145,7 @@ public class ListeAgenceBackController implements Initializable {
         table.setWidthPercentage(100);
 	table.getDefaultCell().setBorderWidth(1);       
         
-        Stream.of("ID", "Nom", "Matricule fiscale", "Adresse", "Site").forEach(columnTitle -> {
+        Stream.of( "Nom", "Matricule fiscale", "Adresse", "Site","Téléphone").forEach(columnTitle -> {
         PdfPCell header = new PdfPCell();
         header.setBackgroundColor(BaseColor.LIGHT_GRAY);
         header.setBorderWidth(1);
@@ -176,14 +176,14 @@ public class ListeAgenceBackController implements Initializable {
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tgt", "root", "");
         Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("SELECT id,nom,matriculeFiscale,adresse,site FROM `agence` where etat=1");
+        ResultSet rs=st.executeQuery("SELECT nom,matriculeFiscale,adresse,site,telephone FROM `agence` where etat=1");
         while(rs.next())
-        {
-        table.addCell(rs.getString("id"));
+        {       
         table.addCell(rs.getString("nom"));
         table.addCell(rs.getString("matriculeFiscale"));
         table.addCell(rs.getString("adresse"));
         table.addCell(rs.getString("site"));
+        table.addCell(rs.getString("telephone"));
         }
         document.add(table);
         JOptionPane.showMessageDialog(null, " données exportées en pdf avec succés ");

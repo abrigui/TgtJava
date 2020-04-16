@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
@@ -65,45 +67,9 @@ public class ListeAgencesFrontController implements Initializable {
     private FontAwesomeIconView iconRecherche;
     @FXML
     private Label lblLesAgences;
-    @FXML
-    private Label lblNomAgence;
-    @FXML
-    private Separator separator;
-    @FXML
-    private Label lblMatriculeFiscale;
-    @FXML
-    private Label lblAdresseAgence;
-    @FXML
-    private Label lblFaxAgence;
-    @FXML
-    private Label lblSiteAgence;
-    @FXML
-    private ImageView imageAgence;
-    @FXML
-    private Label lblTelAgence;
-    @FXML
-    private Label lblEmailAgence;
-    @FXML
-    private ScrollPane scrollPaneEvent;
-    @FXML
-    private HBox HboxEvent;
-    @FXML
-    private ImageView imageSponsor;
-    @FXML
-    private Label lblNomSponsor;
-    @FXML
-    private Label lblAdresseSponsor;
-    @FXML
-    private Label lblTelSponsor;
-    @FXML
-    private Label lblEmailSponsor;
-    @FXML
-    private Label lblAvertissementSponsor;
-    @FXML
-    private Label lblAvertissementEvenement;
+    
     
     private int idAgence;
-    @FXML
     private Label lblLesEvenements;
 
     /**
@@ -119,7 +85,7 @@ public class ListeAgencesFrontController implements Initializable {
             Logger.getLogger(ListeEvenementFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
         afficheListe(Boolean.TRUE);
-        afficheDetail(Boolean.FALSE);
+       
         creationPage(lesAgences);
         
     }
@@ -173,12 +139,18 @@ public class ListeAgencesFrontController implements Initializable {
             btnDetail.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    afficheListe(Boolean.FALSE);
-                    afficheDetail(Boolean.TRUE);
                     idAgence=a.getId();
                     System.out.println(idAgence);
-                    viderChampDetailEvenement();
-                    remplirInofrmationDetail(idAgence);
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/tgt/GUI/DetailAgence.fxml"));
+                        AnchorPane pp = loader.load();
+                        DetailAgenceController detailAg = loader.getController();
+                        detailAg.remplirInofrmationDetail(idAgence);
+                        anchorGlobal.getChildren().clear();
+                        anchorGlobal.getChildren().add(pp);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ListeAgencesFrontController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             });
             
@@ -220,123 +192,5 @@ public class ListeAgencesFrontController implements Initializable {
         iconRecherche .setVisible(bool);
 
     }
-    
-    public void afficheDetail(Boolean bool){
-        lblNomAgence.setVisible(bool);
-        separator.setVisible(bool);
-        lblMatriculeFiscale.setVisible(bool);
-        lblAdresseAgence.setVisible(bool);
-        lblFaxAgence.setVisible(bool);
-        lblSiteAgence.setVisible(bool);
-        imageAgence.setVisible(bool);
-        lblTelAgence.setVisible(bool);
-        lblEmailAgence.setVisible(bool);
-        scrollPaneEvent.setVisible(bool);
-        HboxEvent.setVisible(bool);
-        imageSponsor.setVisible(bool);
-        lblNomSponsor.setVisible(bool);
-        lblAdresseSponsor.setVisible(bool);
-        lblTelSponsor.setVisible(bool);
-        lblEmailSponsor.setVisible(bool);
-        lblLesEvenements.setVisible(bool);
-        //lblAvertissementSponsor.setVisible(bool);
-        //lblAvertissementEvenement.setVisible(bool);
-    }
-    
-    public void afficheDetailSponsor(Boolean bool){   
-        imageSponsor.setVisible(bool);
-        lblNomSponsor.setVisible(bool);
-        lblAdresseSponsor.setVisible(bool);
-        lblTelSponsor.setVisible(bool);
-        lblEmailSponsor.setVisible(bool);
-    }
-    
-    public void remplirInofrmationDetail(int idAgence){        
-        EvenementService es= new EvenementService();
-        AgenceService as =new AgenceService();
-        SponsorService sps= new SponsorService();
-        try {            
-            Agence a= as.getAgenceById(idAgence);          
-            lblNomAgence.setText(lblNomAgence.getText()+" "+a.getNom());
-            imageAgence.setImage(new Image("http://localhost/TGT//web//uploads//logo//"+ a.getLogo()));
-            lblMatriculeFiscale.setText(lblMatriculeFiscale.getText()+" "+a.getMatriculeFiscale());
-            lblAdresseAgence.setText(lblAdresseAgence.getText()+" "+a.getAdresse());
-            lblEmailAgence.setText(lblEmailAgence.getText()+" "+a.getEmail());
-            lblTelAgence.setText(lblTelAgence.getText()+" "+a.getTelephone());
-            lblFaxAgence.setText(lblFaxAgence.getText()+" "+a.getFax());
-            lblSiteAgence.setText(lblSiteAgence.getText()+" "+a.getSite());   
-            ///////////Sponsor/////////////
-            Sponsor s= sps.getSponsorById(a.getSponsor().getId());
-            if(s==null){
-                afficheDetailSponsor(Boolean.FALSE);
-                lblAvertissementSponsor.setVisible(true);
-            }
-            else{
-            imageSponsor.setImage(new Image("http://localhost/TGT//web//uploads//logo//"+ s.getLogo()));
-            lblNomSponsor.setText(lblNomSponsor.getText()+" "+s.getNom());
-            lblAdresseSponsor.setText(lblAdresseSponsor.getText()+" "+s.getAdresse());
-            lblEmailSponsor.setText(lblEmailSponsor.getText()+" "+s.getEmail());
-            lblTelSponsor.setText(lblTelSponsor.getText()+" "+s.getTelephone());
-            }
-            ArrayList<Evenement> lesEvents= new ArrayList<Evenement>();
-            lesEvents=es.getEvenementByAgence(a);
-            if(lesEvents.size()==0){
-                lblAvertissementEvenement.setVisible(true);
-            }
-            else{
-                generationEvenement(lesEvents);
-            }
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(ListeEvenementFrontController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    public void generationEvenement(ArrayList<Evenement> listeEvenement){
-        HboxEvent.toFront();
-        HboxEvent.getChildren().clear();
-        for (Evenement e : listeEvenement) {
-            ImageView photo = new ImageView(new Image("http://localhost/TGT//web//uploads//evenement//"+ e.getImage()));
-            
-            Label lblNom = new Label("Nom: "+e.getNom());
-            lblNom.setFont(Font.font(20));
-                   
-            VBox vb= new VBox();
-
-            vb.setSpacing(10);
-            photo.setFitHeight(180);
-            photo.setFitWidth(280);
-            vb.getChildren().add(photo);
-            vb.getChildren().add(lblNom);
-            vb.spacingProperty();
-            vb.setAlignment(Pos.CENTER);
-
-            HboxEvent.setStyle("-fx-background-color:white;");
-            vb.setStyle("-fx-background-color:white;");   
-            Separator sp= new Separator(Orientation.VERTICAL);
-            sp.setMaxWidth(400);
-            sp.setMaxHeight(15);
-            sp.setPadding(new Insets(0, 15,0, 15));
-            vb.getChildren().add(sp);
-            HboxEvent.setSpacing(20);
-            HboxEvent.getChildren().add(vb);
-        }
-    }
-    
-    public void viderChampDetailEvenement(){
-        lblNomAgence.setText("Agence:");      
-        lblMatriculeFiscale.setText("Matricule fiscale:");
-        lblAdresseAgence.setText("Adresse:");
-        lblFaxAgence.setText("Fax:");
-        lblSiteAgence.setText("Site:");
-        lblTelAgence.setText("Téléphone:");
-        lblEmailAgence.setText("Email:");
-        lblNomSponsor.setText("Sponsor:");
-        lblAdresseSponsor.setText("Adresse:");
-        lblTelSponsor.setText("Téléphone:");
-        lblEmailSponsor.setText("Email:");
        
-    }
-   
-    
 }

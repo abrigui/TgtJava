@@ -18,14 +18,13 @@
       </Label>
       <TableView fx:id="tvAgence" layoutX="33.0" layoutY="240.0" prefHeight="422.0" prefWidth="925.0">
         <columns>
-          <TableColumn fx:id="tcId" prefWidth="46.0" text="Id" />
-          <TableColumn fx:id="tcNomAgence" prefWidth="124.0" text="Nom" />
-            <TableColumn fx:id="tcMatriculeFoscale" prefWidth="129.0" text="Matricule fiscale" />
-            <TableColumn fx:id="tcAdresse" prefWidth="154.0" text="Adresse" />
-            <TableColumn fx:id="tcTelephone" prefWidth="100.0" text="Téléphone" />
-            <TableColumn fx:id="tcFax" prefWidth="97.0" text="Fax" />
-            <TableColumn fx:id="tcSite" prefWidth="137.0" text="Site web" />
-            <TableColumn fx:id="tcEmail" prefWidth="137.0" text="Email" />
+          <TableColumn fx:id="tcNomAgence" prefWidth="152.0" text="Nom" />
+            <TableColumn fx:id="tcMatriculeFoscale" prefWidth="139.0" text="Matricule fiscale" />
+            <TableColumn fx:id="tcAdresse" prefWidth="116.0" text="Adresse" />
+            <TableColumn fx:id="tcTelephone" prefWidth="117.0" text="Téléphone" />
+            <TableColumn fx:id="tcFax" prefWidth="102.0" text="Fax" />
+            <TableColumn fx:id="tcSite" prefWidth="155.0" text="Site web" />
+            <TableColumn fx:id="tcEmail" prefWidth="143.0" text="Email" />
         </columns>
       </TableView>
       <TextField fx:id="tfRecherche" layoutX="161.0" layoutY="178.0" onKeyReleased="#rechercheAgence" prefHeight="31.0" prefWidth="323.0" />

@@ -32,7 +32,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
        
-            Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/tgt/GUI/menu.fxml"));        
+            Parent root = FXMLLoader.load(getClass().getResource("/tn/esprit/tgt/GUI/Dashboard.fxml"));        
             Scene scene = new Scene(root);
             scene.setFill(Color.TRANSPARENT);
             stage.initStyle(StageStyle.TRANSPARENT);

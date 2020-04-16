@@ -66,8 +66,8 @@ public class AccueilAdminController implements Initializable {
     @FXML
     private TableView<Agence> tvListeDemande;
 
-    @FXML
-    private TableColumn<Agence, Integer> tcIdAgence;
+    //@FXML
+    //private TableColumn<Agence, Integer> tcIdAgence;
     
     @FXML
     private TableColumn<Agence, String> tcNom;
@@ -98,7 +98,7 @@ public class AccueilAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {         
         populate();
-        tcIdAgence.setCellValueFactory(new PropertyValueFactory<Agence,Integer>("id"));
+        //tcIdAgence.setCellValueFactory(new PropertyValueFactory<Agence,Integer>("id"));
         tcNom.setCellValueFactory(new PropertyValueFactory<Agence,String>("nom"));
         tcMatFisc.setCellValueFactory(new PropertyValueFactory<Agence,String>("matriculeFiscale"));
         tcTelephone.setCellValueFactory(new PropertyValueFactory<Agence,Integer>("telephone"));

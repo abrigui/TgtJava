@@ -13,9 +13,8 @@
    <children>
       <TableView fx:id="tvSousCategories" layoutX="96.0" layoutY="225.0" prefHeight="231.0" prefWidth="643.0">
          <columns>
-            <TableColumn fx:id="tcIdSousCategorie" prefWidth="106.0" text="Id" />
-            <TableColumn fx:id="tcLibelleSousCategorie" prefWidth="237.0" text="Libellé" />
-            <TableColumn fx:id="tcCategorie" prefWidth="299.0" text="Catégorie" />
+            <TableColumn fx:id="tcLibelleSousCategorie" prefWidth="312.0" text="Libellé" />
+            <TableColumn fx:id="tcCategorie" prefWidth="330.0" text="Catégorie" />
          </columns>
       </TableView>
       <Label layoutX="272.0" layoutY="66.0" text="Gestion des sous catégories">

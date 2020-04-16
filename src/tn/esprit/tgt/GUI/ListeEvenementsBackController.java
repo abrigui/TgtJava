@@ -53,8 +53,8 @@ public class ListeEvenementsBackController implements Initializable {
 
     @FXML
     private TableView<Evenement> tvEvenements;
-    @FXML
-    private TableColumn<Evenement, Integer> tcId;
+   // @FXML
+   // private TableColumn<Evenement, Integer> tcId;
     @FXML
     private TableColumn<Evenement, String> tcNomEvenement;
     @FXML
@@ -100,7 +100,7 @@ public class ListeEvenementsBackController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         populate();
-        tcId.setCellValueFactory(new PropertyValueFactory<Evenement,Integer>("id"));
+        //tcId.setCellValueFactory(new PropertyValueFactory<Evenement,Integer>("id"));
         tcNomEvenement.setCellValueFactory(new PropertyValueFactory<Evenement,String>("nom"));
         tcDateDebut.setCellValueFactory(new PropertyValueFactory<Evenement,Date>("dateDebut"));
         tcLieu.setCellValueFactory(new PropertyValueFactory<Evenement,String>("lieu"));
@@ -149,11 +149,11 @@ public class ListeEvenementsBackController implements Initializable {
         PdfWriter.getInstance(document,new FileOutputStream("C:\\Users\\Administrateur\\Desktop\\evenements.pdf"));    
         document.open();
         
-        PdfPTable table=new PdfPTable(6);
+        PdfPTable table=new PdfPTable(5);
         table.setWidthPercentage(100);
 	table.getDefaultCell().setBorderWidth(1);       
         
-        Stream.of("ID", "Nom", "Date debut", "Lieu", "Date fin", "Nombre de place").forEach(columnTitle -> {
+        Stream.of("Nom", "Date debut", "Lieu", "Date fin", "Nombre de place").forEach(columnTitle -> {
         PdfPCell header = new PdfPCell();
         header.setBackgroundColor(BaseColor.LIGHT_GRAY);
         header.setBorderWidth(1);
@@ -184,10 +184,10 @@ public class ListeEvenementsBackController implements Initializable {
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tgt", "root", "");
         Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("SELECT id,nom,dateDebut,lieu,dateFin,nbParticipantMax FROM `evenement`");
+        ResultSet rs=st.executeQuery("SELECT nom,dateDebut,lieu,dateFin,nbParticipantMax FROM `evenement`");
         while(rs.next())
         {
-        table.addCell(rs.getString("id"));
+        
         table.addCell(rs.getString("nom"));
         table.addCell(rs.getString("dateDebut"));
         table.addCell(rs.getString("lieu"));

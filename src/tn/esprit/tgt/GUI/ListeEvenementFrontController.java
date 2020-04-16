@@ -87,41 +87,14 @@ public class ListeEvenementFrontController implements Initializable {
     private FontAwesomeIconView iconRecherche;
     @FXML
     private Label lblFiltrer;
-    @FXML
-    private Label lblNom;
-    @FXML
-    private Separator separator;
-    @FXML
-    private Label lblDescription;
-    @FXML
-    private Label lblLieu;
-    @FXML
-    private Label lblDateDebut;
-    @FXML
-    private Label lblDateFin;
-    @FXML
-    private Label lblNbrParticipantMax;
-    @FXML
-    private Label lblSousCat;
-    @FXML
-    private Label lblPlaceRestantes;
-    @FXML
-    private ImageView imageEvent;
-    @FXML
-    private JFXButton btnParticiper;
-    @FXML
-    private Label lblAvertissement;
-    @FXML
-    private Label lblNomAgence;
-    @FXML
-    private Label lblTelAgence;
-    @FXML
-    private Label lblEmailAgence;
-    @FXML
-    private JFXButton btnAnnulerParticipation;
+ 
 
     private int idEvent;
     private User currentUser=new User(7, "kk", "kk", "12kk", "kk", "kk", "kk", "kk", 200145, "kk");
+
+    
+    
+    
     
     /**
      * Initializes the controller class.
@@ -140,7 +113,7 @@ public class ListeEvenementFrontController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(ListeEvenementFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        creationPage(lesEvents);
+        creationPage(lesEvents); 
     } 
     
     public void fillCombo() throws SQLException{
@@ -202,11 +175,23 @@ public class ListeEvenementFrontController implements Initializable {
             btnDetail.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    afficheListe(Boolean.FALSE);
-                    afficheDetail(Boolean.TRUE);
-                    idEvent=e.getId();
-                    System.out.println(idEvent);
-                    remplirInofrmationDetail(idEvent);
+                       // afficheListe(Boolean.FALSE);
+                        //afficheDetail(Boolean.TRUE);
+                        idEvent=e.getId();
+                        //System.out.println(idEvent);
+                        //remplirInofrmationDetail(idEvent);
+                    
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/tgt/GUI/DetailEvenement.fxml"));
+                        AnchorPane pp = loader.load();
+                        DetailEvenementController detailCont = loader.getController();
+                        detailCont.remplirInofrmationDetail(idEvent);
+                        anchorGlobal.getChildren().clear();
+                        anchorGlobal.getChildren().add(pp);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ListeEvenementFrontController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                                            
                 }
             });
             
@@ -269,125 +254,5 @@ public class ListeEvenementFrontController implements Initializable {
         cbSousCat.setVisible(bool);
     }
     
-    public void afficheDetail(Boolean bool){
-        lblNom.setVisible(bool);
-        lblDescription.setVisible(bool);
-        lblLieu.setVisible(bool);
-        lblDateDebut.setVisible(bool);
-        lblDateFin.setVisible(bool);
-        lblNbrParticipantMax.setVisible(bool);
-        lblSousCat.setVisible(bool);
-        lblPlaceRestantes.setVisible(bool);
-        imageEvent.setVisible(bool);
-        btnParticiper.setVisible(bool);
-        //lblAvertissement.setVisible(bool);
-        lblNomAgence.setVisible(bool);
-        lblTelAgence.setVisible(bool);
-        lblEmailAgence.setVisible(bool);
-        //btnAnnulerParticipation.setVisible(bool);
-        separator.setVisible(bool) ;
-    }
-    
-    public void remplirInofrmationDetail(int idEvent){        
-        EvenementService es= new EvenementService();
-        AgenceService as =new AgenceService();
-        SousCategorieService scs= new SousCategorieService();
-        try {
-            Evenement e= es.getEvenementById(idEvent);
-            Agence a= as.getAgenceById(e.getAgence().getId());
-            SousCategorie sc= scs.getSousCategorieById(e.getSousCategorie().getId());
-            lblNom.setText(e.getNom());
-            imageEvent.setImage(new Image("http://localhost/TGT//web//uploads//evenement//"+ e.getImage()));
-            lblDescription.setText(lblDescription.getText()+" "+e.getDescription());
-            lblLieu.setText(lblLieu.getText()+" "+e.getLieu());
-            lblDateDebut.setText(lblDateDebut.getText()+" "+e.getDateDebut().toString());
-            lblDateFin.setText(lblDateFin.getText()+" "+e.getDateFin().toString());
-            lblNbrParticipantMax.setText(lblNbrParticipantMax.getText()+" "+e.getNbParticipantMax());
-            lblSousCat.setText(lblSousCat.getText()+" "+sc.getLibelle());
-            int nbrParticipation= es.getNbrParticipationParEvenement(idEvent);
-            int placeRestantes=e.getNbParticipantMax()-nbrParticipation;
-            lblPlaceRestantes.setText(lblPlaceRestantes.getText()+" "+placeRestantes);
-            lblNomAgence.setText(lblNomAgence.getText()+" "+a.getNom());
-            lblTelAgence.setText(lblTelAgence.getText()+" "+a.getTelephone());
-            lblEmailAgence.setText(lblEmailAgence.getText()+" "+a.getEmail());
-            //////////Contorle inscription///////////
-            int verifParticipation=es.verifierParticipationParEvenementEtUser(idEvent, currentUser.getId());
-            if(verifParticipation>0){
-                btnParticiper.setVisible(false);
-                btnAnnulerParticipation.setVisible(true);
-                btnAnnulerParticipation.setDisable(false);
-            }
-            else{
-                btnParticiper.setVisible(true);
-                btnAnnulerParticipation.setVisible(false);
-                btnAnnulerParticipation.setDisable(true);
-            }
-            /////Controle Date/////
-            Date d= new Date();
-            if( d.after(e.getDateDebut())){
-                  btnParticiper.setVisible(false);
-                  btnAnnulerParticipation.setVisible(false);
-                  lblAvertissement.setVisible(true);
-            }           
-        } catch (SQLException ex) {
-            Logger.getLogger(ListeEvenementFrontController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    public void viderChampDetailEvenement(){
-            lblNom.setText("Nom:");            
-            lblDescription.setText("Description:");
-            lblLieu.setText("Lieu:");
-            lblDateDebut.setText("Du:");
-            lblDateFin.setText("Au:");
-            lblNbrParticipantMax.setText("Nombre de place:");
-            lblSousCat.setText("Classification:");           
-            lblPlaceRestantes.setText("Nombre de place restantes:");
-            lblNomAgence.setText("Organisé par:");
-            lblTelAgence.setText("Téléphone:");
-            lblEmailAgence.setText("Email:");
-    }
-
-    @FXML
-    private void participation(ActionEvent event) throws SQLException {
-         JOptionPane jop = new JOptionPane();    	
-      int option = jop.showConfirmDialog(null, 
-        "Voulez-vous confirmer votre participation à cet événement?",
-        "Inscription", 
-        JOptionPane.YES_NO_OPTION, 
-        JOptionPane.QUESTION_MESSAGE);
-
-      if(option != JOptionPane.NO_OPTION &&  
-      option != JOptionPane.CLOSED_OPTION){
-        EvenementService es= new EvenementService();
-        es.ajouterParticipation(currentUser.getId(), idEvent);
-         JOptionPane jopConf = new JOptionPane();    	
-        jopConf.showMessageDialog(null, "Votre inscription à été éffectuée avec succès !", "Inscription", JOptionPane.INFORMATION_MESSAGE);
-        viderChampDetailEvenement();
-        remplirInofrmationDetail(idEvent);
-      }
-    }
-
-    @FXML
-    private void annulerParticipation(ActionEvent event) throws SQLException {
-        JOptionPane jop = new JOptionPane();    	
-      int option = jop.showConfirmDialog(null, 
-        "Voulez-vous confirmer l'annulation de votre participation à cet événement?",
-        "Annulation", 
-        JOptionPane.YES_NO_OPTION, 
-        JOptionPane.QUESTION_MESSAGE);
-
-      if(option != JOptionPane.NO_OPTION &&  
-      option != JOptionPane.CLOSED_OPTION){
-         EvenementService es= new EvenementService();
-        es.supprimerParticipation(currentUser.getId(), idEvent);
-         JOptionPane jopConf = new JOptionPane();    	
-         jopConf.showMessageDialog(null, "Votre Annulation à été éffectuée avec succès !", "Annulation", JOptionPane.INFORMATION_MESSAGE);		
-        viderChampDetailEvenement();
-        remplirInofrmationDetail(idEvent);
-         
-      }
-    }
-
-
-    
+   
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorGlobal" prefHeight="815.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.DetailEvenementController">
+   <children>
+      <Label fx:id="lblNom" layoutX="601.0" layoutY="61.0" text="The Voice">
+         <font>
+            <Font name="System Bold" size="52.0" />
+         </font>
+      </Label>
+      <Separator fx:id="separator" layoutX="516.0" layoutY="241.0" orientation="VERTICAL" prefHeight="334.0" prefWidth="14.0" />
+      <Label fx:id="lblDescription" layoutX="601.0" layoutY="258.0" prefHeight="30.0" prefWidth="740.0" text="Description:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblLieu" layoutX="601.0" layoutY="304.0" prefHeight="30.0" prefWidth="663.0" text="Lieu:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDateDebut" layoutX="598.0" layoutY="344.0" prefHeight="30.0" prefWidth="172.0" text="Du:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDateFin" layoutX="785.0" layoutY="344.0" prefHeight="30.0" prefWidth="172.0" text="Au:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNbrParticipantMax" layoutX="598.0" layoutY="393.0" prefHeight="30.0" prefWidth="227.0" text="Nombre de place:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSousCat" layoutX="598.0" layoutY="433.0" prefHeight="30.0" prefWidth="416.0" text="Classification:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPlaceRestantes" layoutX="599.0" layoutY="472.0" prefHeight="30.0" prefWidth="338.0" text="Nombre de place restantes:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageEvent" fitHeight="255.0" fitWidth="326.0" layoutX="107.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+         <image>
+            <Image url="@../../../../../../../../../Desktop/Evenement/thevoice.jpeg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnParticiper" layoutX="863.0" layoutY="590.0" onAction="#participation" prefHeight="51.0" prefWidth="182.0" style="-fx-background-color: #28a745;" text="Participer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lblAvertissement" alignment="CENTER" layoutX="501.0" layoutY="687.0" prefHeight="54.0" prefWidth="784.0" style="-fx-background-color: #e74a3b;" text="L'Événement a déjà Commencé ! Aucune inscription ou annulation n'est autoriser " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNomAgence" layoutX="89.0" layoutY="575.0" prefHeight="30.0" prefWidth="386.0" text="Organisé par:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTelAgence" layoutX="89.0" layoutY="616.0" prefHeight="30.0" prefWidth="257.0" text="Téléphone: ">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblEmailAgence" layoutX="89.0" layoutY="657.0" prefHeight="30.0" prefWidth="346.0" text="Email :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnAnnulerParticipation" disable="true" layoutX="833.0" layoutY="590.0" onAction="#annulerParticipation" prefHeight="51.0" prefWidth="239.0" style="-fx-background-color: #e74a3b;" text="Annuler Participation" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

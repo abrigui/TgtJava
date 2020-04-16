@@ -44,8 +44,8 @@ public class SousCategorieController implements Initializable {
    @FXML
     private TableView<SousCategorie> tvSousCategories;
 
-    @FXML
-    private TableColumn<SousCategorie, Integer> tcIdSousCategorie;
+    //@FXML
+    //private TableColumn<SousCategorie, Integer> tcIdSousCategorie;
 
     @FXML
     private TableColumn<SousCategorie, String> tcLibelleSousCategorie;
@@ -102,8 +102,8 @@ public class SousCategorieController implements Initializable {
             Logger.getLogger(SousCategorieController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        ObservableList obs = FXCollections.observableArrayList(lesSousCategories);
-        tvSousCategories.setItems(obs);
+        ObservableList obsSousCat = FXCollections.observableArrayList(lesSousCategories);
+        tvSousCategories.setItems(obsSousCat);
     }
     
    
@@ -111,7 +111,7 @@ public class SousCategorieController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         populate();
-        tcIdSousCategorie.setCellValueFactory(new PropertyValueFactory<SousCategorie,Integer>("id"));
+        //tcIdSousCategorie.setCellValueFactory(new PropertyValueFactory<SousCategorie,Integer>("id"));
         tcLibelleSousCategorie.setCellValueFactory(new PropertyValueFactory<SousCategorie,String>("libelle"));
         tcCategorie.setCellValueFactory(new PropertyValueFactory<SousCategorie,Categorie>("categorie"));
         tvSousCategories.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -295,8 +295,7 @@ public class SousCategorieController implements Initializable {
                 sousCategorieGlobal.setCategorie(cbCategorie.getValue());
                 SousCategorieService sc= new SousCategorieService();
                 sc.modifierSousCatgeorie(sousCategorieGlobal);
-                populate();
-
+                populate();       
                 action="";
                 sousCategorieGlobal=null;               
                

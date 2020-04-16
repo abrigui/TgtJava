@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorGlobal" prefHeight="866.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.AjouterEvenementController">
+   <children>
+      <Label layoutX="495.0" layoutY="41.0" text="Ajouter Événement">
+         <font>
+            <Font name="Arial Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="180.0" prefHeight="24.0" prefWidth="59.0" text="Nom:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNomEvenement" layoutX="222.0" layoutY="177.0" prefHeight="31.0" prefWidth="245.0" />
+      <TextField fx:id="tfLieu" layoutX="223.0" layoutY="467.0" prefHeight="31.0" prefWidth="245.0" />
+      <Label layoutX="64.0" layoutY="473.0" prefHeight="24.0" prefWidth="81.0" text="Lieu:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="706.0" prefHeight="24.0" prefWidth="74.0" text="Agence:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="539.0" prefHeight="24.0" prefWidth="113.0" text="Date début:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnSelectionImageEvenement" layoutX="924.0" layoutY="477.0" onAction="#selectionImageEvenet" prefHeight="41.0" prefWidth="187.0" style="-fx-background-color: #4e73df;" text="Choisissez une image" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnValider" layoutX="1033.0" layoutY="700.0" onAction="#validerEvent" prefHeight="48.0" prefWidth="187.0" style="-fx-background-color: #28a745;" text="Valider" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="64.0" layoutY="597.0" prefHeight="24.0" prefWidth="74.0" text="Date fin:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="238.0" prefHeight="24.0" prefWidth="150.0" text="Description:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbAgence" layoutX="226.0" layoutY="703.0" prefHeight="31.0" prefWidth="245.0" />
+      <Label layoutX="64.0" layoutY="764.0" prefHeight="24.0" prefWidth="134.0" text="Classification :">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ivLogoEvent" fitHeight="275.0" fitWidth="371.0" layoutX="831.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true" />
+      <TextArea fx:id="tfDescription" layoutX="222.0" layoutY="238.0" prefHeight="200.0" prefWidth="417.0" />
+      <DatePicker fx:id="dtpDD" layoutX="226.0" layoutY="536.0" prefHeight="31.0" prefWidth="245.0" />
+      <DatePicker fx:id="dtpDF" layoutX="226.0" layoutY="594.0" prefHeight="31.0" prefWidth="245.0" />
+      <ComboBox fx:id="cbSousCat" layoutX="226.0" layoutY="760.0" prefHeight="31.0" prefWidth="245.0" />
+      <Separator layoutX="826.0" layoutY="172.0" orientation="VERTICAL" prefHeight="281.0" prefWidth="6.0" />
+      <Separator layoutX="1203.0" layoutY="173.0" orientation="VERTICAL" prefHeight="281.0" prefWidth="6.0" />
+      <Separator layoutX="827.0" layoutY="168.0" prefHeight="8.0" prefWidth="378.0" />
+      <Separator layoutX="828.0" layoutY="449.0" prefHeight="8.0" prefWidth="378.0" />
+      <TextField fx:id="tfNbrParticipant" layoutX="284.0" layoutY="651.0" prefHeight="31.0" prefWidth="187.0" />
+      <Label layoutX="64.0" layoutY="651.0" prefHeight="31.0" prefWidth="203.0" text="Nombre de participant:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

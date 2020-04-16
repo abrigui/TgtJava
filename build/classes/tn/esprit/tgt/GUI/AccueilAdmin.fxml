@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="991.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.AccueilAdminController">
    <children>
       <Label layoutX="68.0" layoutY="69.0" prefHeight="103.0" prefWidth="192.0" style="-fx-background-color: #e74a3b;" text="Utilisateurs" textFill="WHITE">
@@ -88,10 +87,9 @@
       </JFXButton>
       <TableView fx:id="tvListeDemande" layoutX="72.0" layoutY="356.0" prefHeight="245.0" prefWidth="874.0">
          <columns>
-            <TableColumn fx:id="tcIdAgence" prefWidth="121.0" text="Id" />
             <TableColumn fx:id="tcNom" prefWidth="260.0" text="Nom" />
-            <TableColumn fx:id="tcMatFisc" minWidth="8.0" prefWidth="262.0" text="Matricule fiscale" />
-            <TableColumn fx:id="tcTelephone" prefWidth="228.0" text="Téléphone" />
+            <TableColumn fx:id="tcMatFisc" minWidth="8.0" prefWidth="344.0" text="Matricule fiscale" />
+            <TableColumn fx:id="tcTelephone" prefWidth="269.0" text="Téléphone" />
          </columns>
       </TableView>
    </children>

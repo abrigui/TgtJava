@@ -7,9 +7,14 @@ package tn.esprit.tgt.GUI;
 
 import com.jfoenix.controls.JFXButton;
 import java.io.File;
+import java.io.IOException;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.parseInt;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
@@ -47,7 +52,9 @@ public class AjoutSponsorController implements Initializable {
     @FXML
     private JFXButton btnValider;
     
-    private String url=""; 
+    private String url="";
+    
+    private static File photo;
 
     /**
      * Initializes the controller class.
@@ -59,14 +66,15 @@ public class AjoutSponsorController implements Initializable {
 
     @FXML
     private void selectionImage(ActionEvent event) {
-        FileChooser fc = new FileChooser();
-        File selectedfile = fc.showOpenDialog(null);
-        if (selectedfile != null) 
+       FileChooser fc = new FileChooser();
+        //File selectedfile = fc.showOpenDialog(null);
+        photo =fc.showOpenDialog(null);
+        if (photo != null) 
         {
-            url=selectedfile.toURI().toString();
+            url=photo.toURI().toString();
             Image img = new Image(url);
             ivLogo.setImage(img);
-        
+
             if (img != null) 
             {
                 double w = 0;
@@ -83,7 +91,7 @@ public class AjoutSponsorController implements Initializable {
                 else 
                 {
                 reducCoeff = ratioX;
-                }   
+                }
 
                 w = img.getWidth() * reducCoeff;
                 h = img.getHeight() * reducCoeff;
@@ -93,10 +101,28 @@ public class AjoutSponsorController implements Initializable {
             }
         }
     }
+    
+    public static void copyFile() throws IOException{
+
+        File source = new File(photo.getAbsolutePath());
+        String name = photo.getName();
+        File  dest = new File("C:\\xampp\\htdocs\\TGT\\web\\uploads\\logo");
+        String destination = dest.toPath().toString().concat("\\"+name);
+        Path fd = Paths.get(destination);
+        try
+        {
+            System.out.println(fd);
+            Files.copy(source.toPath(),fd,StandardCopyOption.REPLACE_EXISTING);
+            System.out.println(fd);
+        }catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
-    private void valider(ActionEvent event) throws SQLException {
-        if(tfNom.getText().isEmpty() || tfNom.getText().isEmpty() || tfNom.getText().isEmpty()  || tfNom.getText().isEmpty())
+    private void valider(ActionEvent event) throws SQLException, IOException {
+        if(tfNom.getText().isEmpty() || tfEmail.getText().isEmpty() || tfAdresse.getText().isEmpty()  || tfTelephone.getText().isEmpty())
             {             
                 JOptionPane jop2 = new JOptionPane();
                 jop2.showMessageDialog(null, "Aucun champ ne doit être vide lors de l'ajout", "Attention", JOptionPane.WARNING_MESSAGE);
@@ -113,8 +139,9 @@ public class AjoutSponsorController implements Initializable {
                 else
                 {
                     SponsorService ss= new SponsorService();
-                    Sponsor sponsor = new Sponsor(tfNom.getText(), tfAdresse.getText(),Integer.parseInt(tfTelephone.getText()), tfEmail.getText(), url) ;
+                    Sponsor sponsor = new Sponsor(tfNom.getText(), tfAdresse.getText(),Integer.parseInt(tfTelephone.getText()), tfEmail.getText(), photo.getName()) ;
                     ss.ajouterSponsor(sponsor);
+                    copyFile();
                 }
                 
             }              

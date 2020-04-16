@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorGlobal" prefHeight="815.0" prefWidth="1309.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.tgt.GUI.AjoutAgenceController">
+   <children>
+      <Label layoutX="525.0" layoutY="41.0" text="Ajouter Agence">
+         <font>
+            <Font name="Arial Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="181.0" prefHeight="24.0" prefWidth="59.0" text="Nom:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNomAgence" layoutX="204.0" layoutY="178.0" prefHeight="31.0" prefWidth="245.0" />
+      <TextField fx:id="tfMatriculeFiscale" layoutX="204.0" layoutY="223.0" prefHeight="31.0" prefWidth="245.0" />
+      <TextField fx:id="tfAdresse" layoutX="204.0" layoutY="269.0" prefHeight="31.0" prefWidth="187.0" />
+      <TextField fx:id="tfTelephone" layoutX="204.0" layoutY="314.0" />
+      <Label layoutX="38.0" layoutY="273.0" prefHeight="24.0" prefWidth="81.0" text="Adresse:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="496.0" layoutY="275.0" prefHeight="24.0" prefWidth="59.0" text="Email:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="38.0" layoutY="318.0" prefHeight="24.0" prefWidth="113.0" text="Téléphone:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ivLogoAgence" fitHeight="150.0" fitWidth="238.0" layoutX="987.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="btnSelectionImageAgence" layoutX="1018.0" layoutY="327.0" onAction="#selectionImageAgence" prefHeight="31.0" prefWidth="177.0" style="-fx-background-color: #4e73df;" text="Choisissez une image" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnValider" layoutX="1013.0" layoutY="698.0" onAction="#validerAgence" prefHeight="48.0" prefWidth="187.0" style="-fx-background-color: #28a745;" text="Valider" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="19.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="tfFax" layoutX="603.0" layoutY="178.0" prefHeight="31.0" prefWidth="230.0" />
+      <Label layoutX="496.0" layoutY="181.0" prefHeight="24.0" prefWidth="59.0" text="Fax:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfEmail" layoutX="603.0" layoutY="272.0" prefHeight="31.0" prefWidth="245.0" />
+      <Label layoutX="38.0" layoutY="227.0" prefHeight="24.0" prefWidth="150.0" text="Matricule fiscale:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfSite" layoutX="603.0" layoutY="223.0" prefHeight="31.0" prefWidth="245.0" />
+      <Label layoutX="496.0" layoutY="227.0" prefHeight="24.0" prefWidth="59.0" text="Site:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbSponsor" layoutX="603.0" layoutY="318.0" prefHeight="31.0" prefWidth="157.0" />
+      <JFXButton fx:id="btnAjouterSponsor" layoutX="772.0" layoutY="319.0" onAction="#btnAjouterSponsor" prefHeight="31.0" prefWidth="74.0" style="-fx-background-color: #4e73df;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="496.0" layoutY="322.0" prefHeight="24.0" prefWidth="81.0" text="Sponsor:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Separator layoutX="79.0" layoutY="441.0" prefHeight="31.0" prefWidth="340.0" />
+      <Label layoutX="418.0" layoutY="442.0" text="Sponsor">
+         <font>
+            <Font name="Arial Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="169.0" layoutY="509.0" prefHeight="24.0" prefWidth="59.0" text="Nom:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfNomSponsor" disable="true" layoutX="282.0" layoutY="506.0" />
+      <TextField fx:id="tfAdresseSponsor" disable="true" layoutX="282.0" layoutY="551.0" />
+      <TextField fx:id="tfEmailSponsor" disable="true" layoutX="282.0" layoutY="597.0" />
+      <TextField fx:id="tfTelephoneSponsor" disable="true" layoutX="282.0" layoutY="642.0" />
+      <Label layoutX="169.0" layoutY="554.0" prefHeight="24.0" prefWidth="81.0" text="Adresse:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="169.0" layoutY="601.0" prefHeight="24.0" prefWidth="59.0" text="Email:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="169.0" layoutY="646.0" prefHeight="24.0" prefWidth="113.0" text="Téléphone:">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ivLogoSponsor" fitHeight="150.0" fitWidth="200.0" layoutX="595.0" layoutY="499.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="btnSelectionImageSponsor" disable="true" layoutX="607.0" layoutY="667.0" onAction="#selectionImageSponsor" prefHeight="31.0" prefWidth="177.0" style="-fx-background-color: #4e73df;" text="Choisissez une image" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnValiderSponsor" disable="true" layoutX="289.0" layoutY="722.0" onAction="#validerSponsor" prefHeight="31.0" prefWidth="173.0" style="-fx-background-color: #28a745;" text="Valider" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <Separator layoutX="505.0" layoutY="441.0" prefHeight="31.0" prefWidth="340.0" />
+      <Separator layoutX="77.0" layoutY="765.0" prefHeight="31.0" prefWidth="771.0" />
+      <Separator layoutX="72.0" layoutY="455.0" orientation="VERTICAL" prefHeight="325.0" prefWidth="15.0" />
+      <Separator layoutX="839.0" layoutY="455.0" orientation="VERTICAL" prefHeight="325.0" prefWidth="15.0" />
+      <JFXButton fx:id="btnAnnuler" disable="true" layoutX="505.0" layoutY="722.0" onAction="#btnAnnuler" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #e74a3b;" text="Annuler" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

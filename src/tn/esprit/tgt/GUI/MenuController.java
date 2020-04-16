@@ -81,8 +81,9 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    private void BtnTalents(ActionEvent event) {
-        
+    private void BtnTalents(ActionEvent event) throws IOException {
+       
+          
     }
 
     @FXML

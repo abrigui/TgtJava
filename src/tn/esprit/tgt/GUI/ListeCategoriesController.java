@@ -47,8 +47,8 @@ public class ListeCategoriesController implements Initializable {
      @FXML
     private TableView<Categorie> tvCategories;
 
-    @FXML
-    private TableColumn<Categorie, Integer> tcIdCategorie;
+   // @FXML
+    //private TableColumn<Categorie, Integer> tcIdCategorie;
 
     @FXML
     private TableColumn<Categorie, String> tcLibelleCategorie;
@@ -103,7 +103,7 @@ public class ListeCategoriesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         populate();
-        tcIdCategorie.setCellValueFactory(new PropertyValueFactory<Categorie,Integer>("id"));
+        //tcIdCategorie.setCellValueFactory(new PropertyValueFactory<Categorie,Integer>("id"));
         tcLibelleCategorie.setCellValueFactory(new PropertyValueFactory<Categorie,String>("libelle"));
         
            

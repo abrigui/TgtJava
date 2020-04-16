@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.*;
+import javafx.scene.control.Label;
 import tn.esprit.tgt.entities.*;
 import tn.esprit.tgt.services.*;
 
@@ -45,7 +46,6 @@ public class test {
 //        Commentaire c = new Commentaire("dsdsd", date, p, u);
 //        CommentaireService cs = new CommentaireService();
 //        cs.ajoutCommentaire(c);
-
     }
     
 }

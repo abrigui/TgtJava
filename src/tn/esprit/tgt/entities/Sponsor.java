@@ -124,7 +124,7 @@ public class Sponsor {
 
     @Override
     public String toString() {
-        return "Sponsor{" + "id=" + id + ", nom=" + nom + ", addresse=" + adresse + ", telephone=" + telephone + ", email=" + email + '}';
+        return nom;
     }
     
     
